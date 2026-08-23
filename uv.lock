@@ -429,7 +429,7 @@ dev = [
 requires-dist = [
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "openai", specifier = ">=2.47.0" },
-    { name = "terrarium-sdk", git = "https://github.com/demosyne/terrarium.git?rev=0e5b5f694a5c13c56279dd8db02ed5b60c63793a" },
+    { name = "terrarium-sdk", git = "https://github.com/demosyne/terrarium.git?rev=50241deb29fa0e3cd5ae79b739fdb4c270ca61e3" },
 ]
 
 [package.metadata.requires-dev]
@@ -438,7 +438,7 @@ dev = [{ name = "ruff", specifier = "==0.16.4" }]
 [[package]]
 name = "terrarium-sdk"
 version = "0.4.0"
-source = { git = "https://github.com/demosyne/terrarium.git?rev=0e5b5f694a5c13c56279dd8db02ed5b60c63793a#0e5b5f694a5c13c56279dd8db02ed5b60c63793a" }
+source = { git = "https://github.com/demosyne/terrarium.git?rev=50241deb29fa0e3cd5ae79b739fdb4c270ca61e3#50241deb29fa0e3cd5ae79b739fdb4c270ca61e3" }
 dependencies = [
     { name = "httpx" },
     { name = "loguru" },

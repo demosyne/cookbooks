@@ -17,7 +17,7 @@ package = false
 
 [tool.uv.sources]
 # Remove this source when terrarium-sdk is published to a package registry.
-terrarium-sdk = { git = "https://github.com/demosyne/terrarium.git", rev = "0e5b5f694a5c13c56279dd8db02ed5b60c63793a" }
+terrarium-sdk = { git = "https://github.com/demosyne/terrarium.git", rev = "50241deb29fa0e3cd5ae79b739fdb4c270ca61e3" }
 
 [tool.ruff]
 line-length = 120
