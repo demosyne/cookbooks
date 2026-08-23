@@ -1,0 +1,23 @@
+[project]
+name = "terrarium-cookbooks"
+version = "0.1.0"
+description = "Small, runnable worlds for the Terrarium SDK."
+requires-python = ">=3.12"
+dependencies = [
+    "loguru>=0.7.3",
+    "openai>=2.47.0",
+    "terrarium-sdk>=0.4.0",
+]
+
+[dependency-groups]
+dev = ["ruff==0.16.4"]
+
+[tool.uv]
+package = false
+
+[tool.uv.sources]
+# Remove this source when terrarium-sdk is published to a package registry.
+terrarium-sdk = { git = "https://github.com/demosyne/terrarium.git", rev = "50241deb29fa0e3cd5ae79b739fdb4c270ca61e3" }
+
+[tool.ruff]
+line-length = 120
