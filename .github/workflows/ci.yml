@@ -7,16 +7,22 @@ on:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    # Prefer cookbooks-ci on perdition. Forks, and a disaster recovery that
+    # clears COOKBOOKS_CI_RUNNER, fall back to GitHub-hosted compute.
+    runs-on: >-
+      ${{ (github.event_name != 'pull_request' ||
+      github.event.pull_request.head.repo.full_name == github.repository) &&
+      (vars.COOKBOOKS_CI_RUNNER || 'ubuntu-latest') || 'ubuntu-latest' }}
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
-      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
-        with:
-          python-version: "3.12"
       - name: Install uv
         uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6.8.0
         with:
           version: "0.12.0"
+      # uv installs the interpreter that `.python-version` pins. It needs no
+      # image package, so the same step works on any runner.
+      - name: Install the pinned Python interpreter
+        run: uv python install
       # The SDK is source-only today. Public CI checks these copyable files
       # without requiring credentials for the SDK's private source repository.
       - name: Install checks
