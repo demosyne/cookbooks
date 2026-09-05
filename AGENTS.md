@@ -76,7 +76,7 @@ high --assign me` files real multi-step work; `linear start DEM-352` takes
 it and prints the branch to cut; `linear review` and `linear done` refuse
 to claim a pull request that is not there. Name the issue in the branch
 (`DEM-N-short-slug`) and the PR title (`DEM-N:`), and the rest follows —
-`linear sync` (a user timer on devbox-1) closes the issue when its pull
+`linear sync` runs on a user timer and closes the issue when its pull
 requests merge. LINEAR_API_KEY and GH_TOKEN are already exported;
 ~/.config/swarm/env is data, so never `source` it and never re-extract a
 key you already hold.
